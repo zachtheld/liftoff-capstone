@@ -25,6 +25,7 @@ public class UserController {
     @RequestMapping(value = "register", method = RequestMethod.POST)
     public String processRegisterForm(@RequestParam String name, Model model) {
         user.add(name);
+        model.addAttribute("title", "Welcome");
         return "user/registered";
     }
 }
