@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<h1 th:text="${title}">Title</h1>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Breed</td>
+            <td>Vet</td>
+            <td>Vet Phone</td>
+            <td>Diet</td>
+            <td>Medication</td>
+        </tr>
+    </table>
+    <table>
+        <tr th:each="field : ${dogdata}">
+            <td th:text="${field.dogname}"></td>
+            <td th:text="${field.breed}"></td>
+            <td th:text="${field.vet}"></td>
+            <td th:text="${field.vetphone}"></td>
+            <td th:text="${field.diet}"></td>
+            <td th:text="${field.meds}"></td>
+
+
+        </tr>
+    </table>
+
+</body>
+</html>

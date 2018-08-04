@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+    <h1 th:text="${title}">Default Title</h1>
+    <form method="post">
+        <label for="dogname">Your dogs name:</label>
+        <input type="text" name="dogname" id="dogname" />
+        <lable for="breed">Breed:</lable>
+        <input type="text" name="breed" id="breed" />
+        <label for="vet">Veterinarian:</label>
+        <input type="text" name="vet" id="vet" />
+        <label for="vetphone">Veterinarian Phone:</label>
+        <input type="text" name="vetphone" id="vetphone" />
+        <label for="diet">Diet:</label>
+        <input type="text" name="diet" id="diet" />
+        <label for="meds">Medication:</label>
+        <input type="text" name="meds" id="meds" />
+        <input type="submit" value="Submit Form" />
+    </form>
+
+</body>
+</html>
