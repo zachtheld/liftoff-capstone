@@ -45,7 +45,7 @@ public class PetInfoController {
         dog.setUser(u);
         dogDao.save(dog);
 
-        return "user/loggedin";
+        return "redirect:petinformation/list";
     }
 
     @RequestMapping(value = "list")
