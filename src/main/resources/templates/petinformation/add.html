@@ -6,6 +6,9 @@
 </head>
 <body>
     <h1 th:text="${title}">Default Title</h1>
+
+    <nav th:replace="fragments :: navigation"></nav>
+
     <form method="post">
         <label for="dogname">Your dogs name:</label>
         <input type="text" name="dogname" id="dogname" />

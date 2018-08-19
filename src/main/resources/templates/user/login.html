@@ -3,6 +3,8 @@
 <head th:replace="fragments :: head"></head>
 <body>
     <h1>Login To Your Account</h1>
+    <nav th:replace="fragments :: navigation"></nav>
+
     <form method="post">
         <lable for="email">Email</lable>
         <input type="email" name="email" id="email" />

@@ -15,10 +15,6 @@ public class User {
     @GeneratedValue
     private int id;
 
-    @NotNull
-    @Size(min = 2, max = 50)
-    private String name;
-
     @Email(message = "Email Address Invalid")
     private String email;
 
@@ -26,32 +22,15 @@ public class User {
     @Size(min = 6, message = "Password Must Be 6 Characters Long")
     private String password;
 
-    @NotNull
-    private String phone;
-
-
-    @NotNull
-    private String address;
-
     @OneToMany
     @JoinColumn(name = "user_id")
     private List<Dog> dogs = new ArrayList<>();
 
-    //public User(String username, String email, String password) {
-      //  this.username = username;
-        //this.email = email;
-        //this.password = password;
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<UserInfo> userInfos = new ArrayList<>();
 
-    public User() {
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    public User() {}
 
     public String getEmail() {
         return email;
@@ -69,15 +48,9 @@ public class User {
         this.password = password;
     }
 
-    public String getPhone() { return phone; }
-
-    public void setPhone(String phone) { this.phone = phone; }
-
-    public String getAddress() { return address; }
-
-    public void setAddress(String address) { this.address = address; }
-
     public List<Dog> getDogs() { return dogs; }
+
+    public List<UserInfo> getUserInfos() { return userInfos; }
 
     public int getId() {
         return id;

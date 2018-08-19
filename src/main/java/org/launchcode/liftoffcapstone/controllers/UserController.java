@@ -2,10 +2,13 @@ package org.launchcode.liftoffcapstone.controllers;
 
 
 import org.launchcode.liftoffcapstone.models.User;
+import org.launchcode.liftoffcapstone.models.UserInfo;
 import org.launchcode.liftoffcapstone.models.data.UserDao;
+import org.launchcode.liftoffcapstone.models.data.UserInfoDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,11 +20,14 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("")
 public class UserController {
 
     @Autowired
-    private UserDao userDao;
+    UserDao userDao;
+
+    @Autowired
+    UserInfoDao userInfoDao;
 
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public String registerForm(Model model) {
@@ -38,10 +44,10 @@ public class UserController {
 
 
         } else {
-            model.addAttribute("name", newUser.getName());
+           // model.addAttribute("name", newUser.getName());
             model.addAttribute("email", newUser.getEmail());
             model.addAttribute("title", "Register");
-            return "redirect:/user/register";
+            return "redirect:/register";
         }
         model.addAttribute("title", "Welcome");
 
@@ -60,7 +66,7 @@ public class UserController {
 
         List<User> userList = userDao.findByEmail(user.getEmail());
         if (userList.isEmpty()) {
-            model.addAttribute("title","this sucks");
+            model.addAttribute("title","Login");
             return "user/login";
         }
         User loggedin = userList.get(0);
@@ -69,7 +75,7 @@ public class UserController {
             c.setPath("/");
             response.addCookie(c);
 
-            return "redirect:/petinformation";
+            return "redirect:/user-information/add";
 
         }
         return "user/login";
@@ -87,4 +93,6 @@ public class UserController {
         }
         return "user/login";
     }
+
+
 }

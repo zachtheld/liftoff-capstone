@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("petinformation")
+@RequestMapping("pet-information")
 public class PetInfoController {
 
     @Autowired
@@ -22,11 +22,11 @@ public class PetInfoController {
     @Autowired
     private DogDao dogDao;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "add", method = RequestMethod.GET)
     public String petInfoForm(Model model, @CookieValue(value = "user", defaultValue = "none") String email) {
 
         if(email.equals("none")) {
-            return "redirect:/user/login";
+            return "redirect:/login";
         }
         User u = userDao.findByEmail(email).get(0);
 
@@ -34,22 +34,22 @@ public class PetInfoController {
 
         return "petinformation/add";
     }
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processPetInfoForm(Model model, @ModelAttribute Dog dog, @CookieValue(value = "user", defaultValue = "none") String email){
 
         if(email.equals("none")) {
-            return "redirect:/user/login";
+            return "redirect:/login";
         }
         User u = userDao.findByEmail(email).get(0);
 
         dog.setUser(u);
         dogDao.save(dog);
 
-        return "redirect:petinformation/list";
+        return "redirect:/pet-information/list";
     }
 
     @RequestMapping(value = "list")
-    public String listInfo(Model model, @CookieValue(value = "user", defaultValue = "none") String email) {
+    public String viewPetInfo(Model model, @CookieValue(value = "user", defaultValue = "none") String email) {
 
         if(email.equals("none")) {
             return "redirect:/user/login";
@@ -58,7 +58,7 @@ public class PetInfoController {
         model.addAttribute("dogdata", u.getDogs());
         model.addAttribute("title", "Pet Information");
 
-        return "petinformation/listinformation";
+        return "petinformation/list-information";
     }
 
 }
