@@ -30,6 +30,10 @@ public class User {
     @JoinColumn(name = "user_id")
     private List<UserInfo> userInfos = new ArrayList<>();
 
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Reviews> reviews = new ArrayList<>();
+
     public User() {}
 
     public String getEmail() {
@@ -51,6 +55,10 @@ public class User {
     public List<Dog> getDogs() { return dogs; }
 
     public List<UserInfo> getUserInfos() { return userInfos; }
+
+    public List<Reviews> getReviews() {
+        return reviews;
+    }
 
     public int getId() {
         return id;
