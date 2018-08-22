@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-
 <body>
 <nav th:replace="fragments :: navigation"></nav>
 <table>
     <tr>
-        <td>Name</td>
-        <td>Phone Number</td>
-        <td>Address</td>
+        <td>Title</td>
+        <td>Review</td>
     </tr>
 </table>
 <table>
-    <tr th:each="field : ${userData}">
-        <td th:text="${field.name}"></td>
-        <td th:text="${field.phone}"></td>
-        <td th:text="${field.address}"></td>
+    <tr th:each="review : ${reviewData}">
+        <td th:text="${review.title}"></td>
+        <td th:text="${review.review}"></td>
     </tr>
 </table>
-
 </body>
 </html>
