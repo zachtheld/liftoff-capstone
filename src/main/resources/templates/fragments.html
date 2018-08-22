@@ -5,14 +5,15 @@
     <title th:text="${title}">Dog Sitting</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
 </head>
 <body>
-    <nav th:fragment="navigation">
-        <a href="/register">Register</a>
-        <a href="/login">Login</a>
-        <a href="/logout">Logout</a>
-        <a href="/user-information/add">User Info</a>
-        <a href="/pet-information/add">Add Pet Info</a>
+    <nav th:fragment="navigation" class="navbar navbar-dark bg-dark">
+        <a href="/register" class="nav-link">Register</a>
+        <a href="/login" class="nav-link">Login</a>
+        <a href="/logout" class="nav-link">Logout</a>
+        <a href="/user-information/add" class="nav-link">User Info</a>
+        <a href="/pet-information/add" class="nav-link">Add Pet Info</a>
     </nav>
 
 </body>

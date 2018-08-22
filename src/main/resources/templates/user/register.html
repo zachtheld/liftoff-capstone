@@ -7,19 +7,19 @@
     <nav th:replace="fragments :: navigation"></nav>
 
     <form method="post">
-       <!-- <label for="name">First, Last Name</label>
-        <input type="text" name="name" id="name" />-->
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" />
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
-        <label for="verify">Verify Password</label>
-        <input type="password" name="verify" id="verify" />
-       <!-- <label for="phone">Phone Number</label>
-        <input type="text" name="phone" id="phone" />
-        <lable for="address">Address</lable>
-        <input type="text" name="address" id="address" />-->
-        <input type="submit" value="Register" />
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+        </div>
+        <div class="form-group">
+            <label for="verify">Verify Password</label>
+            <input type="password" name="verify" id="verify" />
+        </div>
+        <input type="submit" class="btn btn-primary" value="Register" />
     </form>
 
 </body>
