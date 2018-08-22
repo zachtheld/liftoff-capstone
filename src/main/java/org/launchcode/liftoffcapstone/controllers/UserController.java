@@ -1,17 +1,17 @@
 package org.launchcode.liftoffcapstone.controllers;
 
 
+
 import org.launchcode.liftoffcapstone.models.User;
-import org.launchcode.liftoffcapstone.models.UserInfo;
 import org.launchcode.liftoffcapstone.models.data.UserDao;
 import org.launchcode.liftoffcapstone.models.data.UserInfoDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -40,11 +40,12 @@ public class UserController {
     public String processRegisterForm(Model model, @ModelAttribute User newUser, String verify) {
         List<User> sameName = userDao.findByEmail(newUser.getEmail());
         if (verify.equals(newUser.getPassword())) {
+
             userDao.save(newUser);
 
 
         } else {
-           // model.addAttribute("name", newUser.getName());
+
             model.addAttribute("email", newUser.getEmail());
             model.addAttribute("title", "Register");
             return "redirect:/register";
