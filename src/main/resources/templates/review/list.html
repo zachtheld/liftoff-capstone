@@ -3,17 +3,9 @@
 <head th:replace="fragments :: head"></head>
 <body>
 <nav th:replace="fragments :: navigation"></nav>
-<table>
-    <tr>
-        <td>Title</td>
-        <td>Review</td>
-    </tr>
-</table>
-<table>
-    <tr th:each="review : ${reviewData}">
-        <td th:text="${review.title}"></td>
-        <td th:text="${review.review}"></td>
-    </tr>
-</table>
+<blockquote class="blockquote text-center" th:each="review : ${reviewData}">
+    <p class="mb-0" th:text="${review.review}" ></p>
+    <footer class="blockquote-footer" th:text="${review.getUser().getEmail()}"></footer>
+</blockquote>
 </body>
 </html>

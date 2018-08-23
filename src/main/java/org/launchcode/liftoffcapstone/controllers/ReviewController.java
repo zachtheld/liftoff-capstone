@@ -47,8 +47,7 @@ public class ReviewController {
     }
 
     @RequestMapping("review-list")
-    public String listReviews(Model model) {
-        //reviewsDao.findAll();
+    public String listReviews(Model model, @ModelAttribute Reviews reviews , @CookieValue(value = "user", defaultValue = "none") String email) {
         model.addAttribute("reviewData", reviewsDao.findAll());
         return "review/list";
     }

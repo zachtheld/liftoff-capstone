@@ -11,4 +11,6 @@ import java.util.List;
 @Repository
 public interface ReviewsDao extends CrudRepository<Reviews, Integer> {
     public List<Reviews> findByUserId(Integer user_id);
+
+
 }

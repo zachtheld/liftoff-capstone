@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Reviews {
@@ -51,4 +52,10 @@ public class Reviews {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public int getId() {
+        return id;
+    }
+
+
 }
