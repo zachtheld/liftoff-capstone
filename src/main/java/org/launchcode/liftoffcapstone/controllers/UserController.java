@@ -52,7 +52,7 @@ public class UserController {
         }
         model.addAttribute("title", "Welcome");
 
-        return "user/registered";
+        return "redirect:/login";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
