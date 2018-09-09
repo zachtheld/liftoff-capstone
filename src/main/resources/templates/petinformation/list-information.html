@@ -2,29 +2,41 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
-<h1 th:text="${title}">Title</h1>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Breed</th>
-                <th scope="col">Vet</th>
-                <th scope="col">Vet Phone</th>
-                <th scope="col">Diet</th>
-                <th scope="col">Medication</th>
-            </tr>
-        </thead>
-        <tbody>
-            <th scope="row"></th>
-                <tr th:each="field : ${dogdata}">
-                    <td th:text="${field.dogname}"></td>
-                    <td th:text="${field.breed}"></td>
-                    <td th:text="${field.vet}"></td>
-                    <td th:text="${field.vetphone}"></td>
-                    <td th:text="${field.diet}"></td>
-                    <td th:text="${field.meds}"></td>
+<header th:replace="fragments :: header"></header>
+    <h1 th:text="${title}">Title</h1>
+
+    <div th:if="${dogdata.isEmpty()}">
+        <h2>You Have Not Added Any Information About your Pet</h2>
+        <a href="/pet-information/add">Add Pet Info</a>
+
+    </div>
+    <div th:unless="${dogdata.isEmpty()}">
+        <table class="table table-bordered container" >
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Breed</th>
+                    <th scope="col">Vet</th>
+                    <th scope="col">Vet Phone</th>
+                    <th scope="col">Diet</th>
+                    <th scope="col">Medication</th>
                 </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <th scope="row"></th>
+                    <tr th:each="field : ${dogdata}">
+                        <td th:text="${field.dogname}"></td>
+                        <td th:text="${field.breed}"></td>
+                        <td th:text="${field.vet}"></td>
+                        <td th:text="${field.vetphone}"></td>
+                        <td th:text="${field.diet}"></td>
+                        <td th:text="${field.meds}"></td>
+                    </tr>
+            </tbody>
+        </table>
+        <h3>Have More Than One Pet? Add Another here!</h3>
+        <a href="/pet-information/add">Add Another Pet</a>
+    </div>
+
 </body>
 </html>

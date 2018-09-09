@@ -2,10 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
-    <h1>Login To Your Account</h1>
-    <nav th:replace="fragments :: navigation"></nav>
 
-    <form method="post">
+    <header th:replace="fragments :: header"></header>
+    <h1>Login To Your Account</h1>
+
+    <form method="post" class="container">
         <div class="form-group">
             <lable for="email">Email</lable>
             <input type="email" name="email" id="email" class="form-control" />

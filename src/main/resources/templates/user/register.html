@@ -4,9 +4,13 @@
 <body>
     <h1 th:text="${title}">Default Title</h1>
 
-    <nav th:replace="fragments :: navigation"></nav>
+    <header th:replace="fragments :: header"></header>
 
-    <form method="post">
+    <form method="post" class="container">
+        <div class="form-group">
+            <label for="fName">First and Last Name</label>
+            <input type="text" name="fName" id="fName" class="form-control"/>
+        </div>
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" class="form-control"/>

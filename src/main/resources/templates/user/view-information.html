@@ -3,12 +3,16 @@
 <head th:replace="fragments :: head"></head>
 
 <body>
-<nav th:replace="fragments :: navigation"></nav>
+<header th:replace="fragments :: header"></header>
 <table>
     <tr>
         <td>Name</td>
         <td>Phone Number</td>
         <td>Address</td>
+        <td>City</td>
+        <td>State</td>
+        <td>Zip Code</td>
+
     </tr>
 </table>
 <table>
@@ -16,6 +20,10 @@
         <td th:text="${field.name}"></td>
         <td th:text="${field.phone}"></td>
         <td th:text="${field.address}"></td>
+        <td th:text="${field.city}"></td>
+        <td th:text="${field.state}"></td>
+        <td th:text="${field.zip}"></td>
+
     </tr>
 </table>
 

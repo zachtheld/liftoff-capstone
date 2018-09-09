@@ -15,6 +15,10 @@ public class User {
     @GeneratedValue
     private int id;
 
+    @NotNull
+    @Size(min = 2)
+    private String fName;
+
     @Email(message = "Email Address Invalid")
     private String email;
 
@@ -35,6 +39,14 @@ public class User {
     private List<Reviews> reviews = new ArrayList<>();
 
     public User() {}
+
+    public String getfName() {
+        return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
 
     public String getEmail() {
         return email;

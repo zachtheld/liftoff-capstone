@@ -2,10 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
-<nav th:replace="fragments :: navigation"></nav>
-<blockquote class="blockquote text-center" th:each="review : ${reviewData}">
-    <p class="mb-0" th:text="${review.review}" ></p>
-    <footer class="blockquote-footer" th:text="${review.getUser().getEmail()}"></footer>
+<header th:replace="fragments :: header"></header>
+<div th:if="${reviewData.isEmpty()}">
+    <h2>No Reviews To Read. Please Write A Review!</h2>
+    <a href="/create">Write A Review</a>
+</div>
+<blockquote class="blockquote text-center" th:each="review : ${reviewData}" th:unless="${reviewData.isEmpty()}">
+    <h2 class="mb-0" th:text="${review.review}"></h2>
+    <footer class="blockquote-footer" th:text="${review.getUser().getfName()}"></footer>
 </blockquote>
+
+    <footer class="footer" th:unless="${reviewData.isEmpty()}">Would You Like To Let Others Know If You Were Satisfied With The Services Provided? You Can Do
+    That Here! <a href="/create">Write A Review</a></footer>
+
+
 </body>
 </html>
