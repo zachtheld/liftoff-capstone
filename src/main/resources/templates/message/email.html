@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+    <header th:replace="fragments :: header"></header>
+    <br />
+    <h1 th:text="${title}">Title</h1>
+    <br />
+    <div class="container">
+        <h2>Send Me A Message</h2>
+
+        <form action="mailto:ztheld@gmail.com" method="post" enctype="text/plain">
+            Name:<br />
+            <input type="text" name="name" /><br />
+            E-mail:<br />
+            <input type="text" name="mail" /><br />
+            Message:<br />
+            <textarea type="text" name="comment" size="50" /><br /><br />
+            <input type="submit" value="Send" />
+
+        </form>
+    </div>
+
+</body>
+</html>

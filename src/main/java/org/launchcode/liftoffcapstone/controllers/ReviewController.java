@@ -23,18 +23,18 @@ public class ReviewController {
     @Autowired
     ReviewsDao reviewsDao;
 
-    @RequestMapping(value = "create", method = RequestMethod.GET)
+    @RequestMapping(value = "write-a-review", method = RequestMethod.GET)
     public String createReview(Model model, @CookieValue(value = "user", defaultValue = "none") String email) {
 
         if (email.equals("none")) {
             return "redirect:/login";
         }
-
+        model.addAttribute("title", "Write A Review");
 
         return "review/create";
     }
 
-    @RequestMapping(value = "create", method = RequestMethod.POST)
+    @RequestMapping(value = "write-a-review", method = RequestMethod.POST)
     public String processCreateReview(Model model, @ModelAttribute Reviews reviews, @CookieValue(value = "user", defaultValue = "none") String email) {
 
         if (email.equals("none")) {
@@ -43,12 +43,14 @@ public class ReviewController {
         User u = userdao.findByEmail(email).get(0);
         reviews.setUser(u);
         reviewsDao.save(reviews);
-        return "redirect:/review-list";
+
+        return "redirect:/reviews";
     }
 
-    @RequestMapping("review-list")
+    @RequestMapping("reviews")
     public String listReviews(Model model, @ModelAttribute Reviews reviews , @CookieValue(value = "user", defaultValue = "none") String email) {
         model.addAttribute("reviewData", reviewsDao.findAll());
+        model.addAttribute("title", "Reviews");
         return "review/list";
     }
 }

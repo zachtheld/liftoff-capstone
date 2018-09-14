@@ -47,8 +47,12 @@ public class UserInfoController {
     @RequestMapping(value = "view")
     public String viewUserInfo(Model model, @CookieValue(value = "user", defaultValue = "none") String email) {
 
+        if (email.equals("none")) {
+            return "redirect:/login";
+        }
         User u = userDao.findByEmail(email).get(0);
         model.addAttribute("userData", u.getUserInfos());
         return "user/view-information";
+
     }
 }

@@ -41,7 +41,6 @@ public class PetInfoController {
             return "redirect:/login";
         }
         User u = userDao.findByEmail(email).get(0);
-
         dog.setUser(u);
         dogDao.save(dog);
 
@@ -52,7 +51,7 @@ public class PetInfoController {
     public String viewPetInfo(Model model, @CookieValue(value = "user", defaultValue = "none") String email) {
 
         if(email.equals("none")) {
-            return "redirect:/user/login";
+            return "redirect:/login";
         }
         User u = userDao.findByEmail(email).get(0);
         model.addAttribute("dogdata", u.getDogs());

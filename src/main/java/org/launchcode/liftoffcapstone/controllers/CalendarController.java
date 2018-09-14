@@ -16,6 +16,7 @@ public class CalendarController {
         if (email.equals("none")) {
             return "redirect:/login";
         }
+        model.addAttribute("title", "Calendar");
         return "calendar/view-calendar";
     }
 }

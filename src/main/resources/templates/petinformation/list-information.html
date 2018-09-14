@@ -3,12 +3,12 @@
 <head th:replace="fragments :: head"></head>
 <body>
 <header th:replace="fragments :: header"></header>
+    <br />
     <h1 th:text="${title}">Title</h1>
 
     <div th:if="${dogdata.isEmpty()}">
         <h2>You Have Not Added Any Information About your Pet</h2>
         <a href="/pet-information/add">Add Pet Info</a>
-
     </div>
     <div th:unless="${dogdata.isEmpty()}">
         <table class="table table-bordered container" >

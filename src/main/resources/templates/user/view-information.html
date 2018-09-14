@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+<br />
+<h1 th:text="${title}">Title</h1>
+<br />
 
 <body>
-<header th:replace="fragments :: header"></header>
-<table>
-    <tr>
-        <td>Name</td>
-        <td>Phone Number</td>
-        <td>Address</td>
-        <td>City</td>
-        <td>State</td>
-        <td>Zip Code</td>
+    <header th:replace="fragments :: header"></header>
+    <div th:if="${userData.isEmpty()}">
+        <h2>You Have Not Added Any Personal Information</h2>
+        <a href="/pet-information/add">Please </a>
+    </div>
+    <div th:unless="${userData.isEmpty()}">
+        <table id="info" th:each="field : ${userData}">
+            <tr>
+                <th>Name:</th>
+                <td th:text="${field.name}"></td>
+            </tr>
+            <tr>
+                <th>Telephone:</th>
+                <td th:text="${field.phone}"></td>
+            </tr>
+            <tr>
+                <th>Address:</th>
+                <td th:text="${field.address}"></td>
+            </tr>
+            <tr>
+                <th>City:</th>
+                <td th:text="${field.city}"></td>
+            </tr>
+            <tr>
+                <th>State:</th>
+                <td th:text="${field.state}"></td>
+            </tr>
+            <tr>
+                <th>Zip Code:</th>
+                <td th:text="${field.zip}"></td>
+            </tr>
+        </table>
+    </div>
 
-    </tr>
-</table>
-<table>
-    <tr th:each="field : ${userData}">
-        <td th:text="${field.name}"></td>
-        <td th:text="${field.phone}"></td>
-        <td th:text="${field.address}"></td>
-        <td th:text="${field.city}"></td>
-        <td th:text="${field.state}"></td>
-        <td th:text="${field.zip}"></td>
 
-    </tr>
-</table>
 
 </body>
 </html>

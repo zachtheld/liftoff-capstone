@@ -17,10 +17,6 @@ public class Reviews {
     private int id;
 
     @NotNull
-    @Size(min = 1, max = 35)
-    private String title;
-
-    @NotNull
     @Size(min = 1, max = 255)
     private String review;
 
@@ -29,13 +25,6 @@ public class Reviews {
 
     public Reviews() {}
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getReview() {
         return review;
